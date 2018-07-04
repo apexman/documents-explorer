@@ -1,5 +1,4 @@
 require.config({
-    // baseUrl: "js",
     paths: {
         webix: "libs/codebase/webix",
         dateFormat: "libs/dateFormat.min"
@@ -18,48 +17,11 @@ require.config({
 require(
     [
         "webix",
-        "dateFormat",
-        "docEditor/documentLayout",
-        "document/browseAll",
-        "department/tree",
-        "department/treetable"
+        "view/home"
     ],
-    function (webix, dateFormat, docLayout, documents, depTree, depTreeTable) {
+    function (webix, home) {
         webix.ready(function () {
-            let documentEditor = docLayout.layout;
-
-            webix.ui({
-                cols: [
-                    {
-                        rows:
-                            []
-                    },
-                    documentEditor
-                ]
-            });
-
-            webix.ui({
-                view: "window",
-                id: "documentListWindow",
-                height: 500,
-                // autowidth: true,
-                // width: 400,
-                position: "center",
-                move: true,
-                // modal: true,
-                head: {
-                    view: "toolbar", cols: [
-                        {view: "label", label: "Document list"},
-                        {
-                            view: "icon", icon: "times",
-                            click: function () {
-                                $$("documentListWindow").close();
-                            }
-                        }
-                    ]
-                },
-                body: documents.grid
-            }).show();
+            home.show();
         });
     }
 );

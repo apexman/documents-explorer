@@ -11,27 +11,27 @@ public class Document {
     private String id = UUID.randomUUID().toString().replace("-", "");
 
     @Column(name = "doc_name")
-    private String name;
+    private String name = "TEMP";
 
     @Column(nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date created = new Date();
 
     @Column(name = "createdby", nullable = false)
-    private String createdBy;
+    private String createdBy = "system";
 
     @Column(nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date modified = new Date();
 
     @Column(name = "modifiedby", nullable = false)
-    private String modifiedBy;
+    private String modifiedBy = "system";
 
     @Column(length = 1, nullable = false)
-    private String status;
+    private String status = "I";
 
     @Column(name = "doc_type", nullable = false, length = 4)
-    private String docType;
+    private String docType = "1010";
 
     public String getId() {
         return id;

@@ -34,6 +34,29 @@ define(["webix", "dateFormat"],
         }
 
         return {
-            grid: listGrid()
+            grid: listGrid(),
+
+            show: function () {
+                webix.ui({
+                    view: "window",
+                    id: "documentListWindow",
+                    height: 500,
+                    position: "center",
+                    move: true,
+                    // modal: true,
+                    head: {
+                        view: "toolbar", cols: [
+                            {view: "label", label: "Document list"},
+                            {
+                                view: "icon", icon: "times",
+                                click: function () {
+                                    $$("documentListWindow").close();
+                                }
+                            }
+                        ]
+                    },
+                    body: listGrid()
+                }).show();
+            }
         }
     });
