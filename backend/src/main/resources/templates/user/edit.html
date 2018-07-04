@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <title>User edit</title>
+</head>
+<body>
+<div class="container">
+
+    <h1>Users</h1>
+
+    <form class="form-group" action="/employee/edit" th:action="@{/employee/edit}" method="post">
+        <input th:type="hidden" class="form-control" id="id" th:field="${employee.id}"/>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" th:field="${employee.name}"/>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <textarea class="form-control" id="email" th:field="${employee.email}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="#" th:href="@{/employee/all}" class="btn btn-danger" role="button">Cancel</a>
+    </form>
+
+</div>
+
+<p>Get your <a href="/hello">hello</a></p>
+<p>Back <a href="/">home</a></p>
+</body>
+</html>
